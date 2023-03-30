@@ -1,0 +1,37 @@
+{
+    // image being used
+     "image": "mcr.microsoft.com/devcontainers/universal:2",
+    // set minimum cpu
+     "hostRequirements": {
+         "cpus": 4
+     },
+     // install dependencies and start app
+     "updateContentCommand": "cd quickstart; npm install ",
+     "postAttachCommand": "npx shadow-cljs watch app",
+     // open app.tsx once container is built
+     "customizations": {
+         "codespaces": {
+             "openFiles": [
+                 "src/main/starter/browser.cljs"
+             ]
+         },
+         // install some vscode extensions
+         "vscode": {
+             "extensions": [
+                 "dbaeumer.vscode-eslint",
+                 "github.vscode-pull-request-github",
+                 "eamodio.gitlens",
+                 "christian-kohler.npm-intellisense"
+             ]
+         }
+     },
+     // connect to remote server
+     "forwardPorts": [8020],
+     // give port a label and open a preview of the app
+     "portsAttributes": {
+        "8020": {
+           "label": "Application",
+           "onAutoForward": "openPreview"
+         }
+       }
+  }
